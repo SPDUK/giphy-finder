@@ -1,13 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import { createLogger } from 'redux-logger';
+import createSagaMiddleware from 'redux-saga';
 import reducer from './reducers';
 import { searchSuccess } from './actions/search';
+import searchSaga from './sagas/search';
 
 import App from './App';
 
-const store = createStore(reducer);
+const sagas = createSagaMiddleware();
+const store = createStore(reducer, applyMiddleware(createLogger(), sagas));
+
+sagas.run(searchSaga);
 
 const results = [
   {
@@ -23,10 +29,6 @@ const results = [
       'https://media2.giphy.com/media/JIX9t2j0ZTN9S/100_s.gif?cid=f35e07535d0e6acf75564d426bb43c42&rid=100_s.gif'
   }
 ];
-
-setTimeout(() => {
-  store.dispatch(searchSuccess(results));
-}, 2000);
 
 ReactDOM.render(
   <Provider store={store}>
