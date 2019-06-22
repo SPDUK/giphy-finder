@@ -3,16 +3,16 @@ import PropTypes from 'prop-types';
 import * as CustomTypes from '../../lib/custom-types';
 import SearchResult from '../search-result';
 
-export default function SearchResults({ results }) {
-  return (
-    <div>
-      {results.map(result => (
-        <SearchResult key={result.thumbnail} result={result} />
-      ))}
-    </div>
-  );
-}
+const searchResults = ({ results }) => (
+  <>
+    {results.map(result => (
+      <SearchResult key={result.thumbnail} result={result} />
+    ))}
+  </>
+);
 
-SearchResults.propTypes = {
+searchResults.propTypes = {
   results: PropTypes.arrayOf(CustomTypes.SearchResult)
 };
+
+export default searchResults;
