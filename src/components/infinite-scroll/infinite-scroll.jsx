@@ -21,13 +21,13 @@ class InfiniteScroll extends Component {
   }
 
   scrollListener() {
-    const { isLoading, onTrigger } = this.props;
+    const { isLoading, onTrigger, isActive } = this.props;
     // get height of viewport
     const { clientHeight } = document.documentElement;
     // get the bottom position of the container
     const { bottom } = this.container.getBoundingClientRect();
-    // stop reloading multiple times
-    if (!isLoading && bottom <= clientHeight) {
+    // only run onTrigger if we are not loading, are scrolled and have something to search for
+    if (isActive && !isLoading && bottom <= clientHeight) {
       // inform the parent scrolling has triggered
       onTrigger();
     }
@@ -51,6 +51,7 @@ class InfiniteScroll extends Component {
 InfiniteScroll.propTypes = {
   children: PropTypes.element.isRequired,
   isLoading: PropTypes.bool.isRequired,
-  onTrigger: PropTypes.func.isRequired
+  onTrigger: PropTypes.func.isRequired,
+  isActive: PropTypes.bool.isRequired
 };
 export default InfiniteScroll;

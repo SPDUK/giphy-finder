@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import { createLogger } from 'redux-logger';
 import createSagaMiddleware from 'redux-saga';
-import { Route, BrowserRouter as Router } from 'react-router-dom';
+import { Route, Router } from 'react-router-dom';
 import history from './lib/history';
 import reducer from './reducers';
 import searchSaga from './sagas/search';

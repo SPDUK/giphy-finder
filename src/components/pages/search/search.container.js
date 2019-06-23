@@ -3,9 +3,10 @@ import { withRouter } from 'react-router-dom';
 import Search from './search';
 import { newSearch, performSearch } from '../../../actions/search';
 
-function mapStateToProps({ search: { isLoading } }) {
+function mapStateToProps({ search: { isLoading, isActive } }) {
   return {
-    isLoading
+    isLoading,
+    isActive
   };
 }
 

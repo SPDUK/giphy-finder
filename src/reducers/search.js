@@ -4,7 +4,8 @@ const initialState = {
   searchTerm: '',
   results: [],
   offset: 0,
-  isLoading: false
+  isLoading: false,
+  isActive: false
 };
 
 const searchResultTransformer = ({ images }) => ({
@@ -20,7 +21,8 @@ export default (state, action) => {
         ...state,
         offset: state.offset + 50,
         results: state.results.concat(action.results.map(searchResultTransformer)),
-        isLoading: false
+        isLoading: false,
+        isActive: action.results.length === 50
       };
     case NEW_SEARCH:
       return {
