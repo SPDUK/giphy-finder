@@ -1,9 +1,10 @@
-import { SEARCH_SUCCESS, NEW_SEARCH } from '../actions/search';
+import { SEARCH_SUCCESS, NEW_SEARCH, PERFORM_SEARCH, SEARCH_ERROR } from '../actions/search';
 
 const initialState = {
   searchTerm: '',
   results: [],
-  offset: 0
+  offset: 0,
+  isLoading: false
 };
 
 const searchResultTransformer = ({ images }) => ({
@@ -18,7 +19,8 @@ export default (state, action) => {
       return {
         ...state,
         offset: state.offset + 50,
-        results: state.results.concat(action.results.map(searchResultTransformer))
+        results: state.results.concat(action.results.map(searchResultTransformer)),
+        isLoading: false
       };
     case NEW_SEARCH:
       return {
@@ -26,6 +28,16 @@ export default (state, action) => {
         results: [],
         offset: 0,
         searchTerm: action.searchTerm
+      };
+    case PERFORM_SEARCH:
+      return {
+        ...state,
+        isLoading: true
+      };
+    case SEARCH_ERROR:
+      return {
+        ...state,
+        isLoading: false
       };
     default:
       return state;

@@ -4,10 +4,10 @@ import SearchForm from '../../search-form/search-form';
 import SearchResults from '../../search-results/search-results.container';
 import InfiniteScroll from '../../infinite-scroll/infinite-scroll';
 
-const search = ({ onSearchSubmitted, onInfiniteScroll }) => (
+const search = ({ onSearchSubmitted, onInfiniteScroll, isLoading }) => (
   <>
     <SearchForm onSearchSubmitted={onSearchSubmitted} />
-    <InfiniteScroll isLoading={false} onTrigger={onInfiniteScroll}>
+    <InfiniteScroll isLoading={isLoading} onTrigger={onInfiniteScroll}>
       <SearchResults />
     </InfiniteScroll>
   </>
@@ -15,7 +15,8 @@ const search = ({ onSearchSubmitted, onInfiniteScroll }) => (
 
 search.propTypes = {
   onSearchSubmitted: PropTypes.func.isRequired,
-  onInfiniteScroll: PropTypes.func.isRequired
+  onInfiniteScroll: PropTypes.func.isRequired,
+  isLoading: PropTypes.bool.isRequired
 };
 
 export default search;

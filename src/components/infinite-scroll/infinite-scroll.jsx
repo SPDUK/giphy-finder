@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Spinner from '@atlaskit/spinner';
+import { Centered } from '../styles/centered';
 
 class InfiniteScroll extends Component {
   constructor(props) {
@@ -36,7 +38,11 @@ class InfiniteScroll extends Component {
     return (
       <div ref={e => (this.container = e)}>
         {children}
-        {isLoading ? <div>Loading...</div> : null}
+        {isLoading && (
+          <Centered>
+            <Spinner invertColor size="large" />
+          </Centered>
+        )}
       </div>
     );
   }
