@@ -12,7 +12,6 @@ class InfiniteScroll extends Component {
 
   componentDidMount() {
     document.addEventListener('scroll', this.scrollListener);
-    console.log(this.container);
   }
 
   componentWillUnmount() {
