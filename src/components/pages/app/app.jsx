@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Navigation from '../../navigation';
 import { StyledApp, StyledContainer } from './app-styles';
 
@@ -8,5 +9,9 @@ const app = ({ children }) => (
     <StyledContainer>{children}</StyledContainer>
   </StyledApp>
 );
+
+app.propTypes = {
+  children: PropTypes.arrayOf(PropTypes.element).isRequired
+};
 
 export default app;
