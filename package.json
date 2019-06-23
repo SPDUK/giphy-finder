@@ -5,6 +5,7 @@
   "dependencies": {
     "@atlaskit/button": "^13.0.8",
     "@atlaskit/css-reset": "^5.0.2",
+    "@atlaskit/textfield": "^2.0.2",
     "axios": "^0.19.0",
     "history": "^4.9.0",
     "prop-types": "^15.7.2",

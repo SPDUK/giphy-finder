@@ -1,27 +1,43 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import Textfield from '@atlaskit/textfield';
+import React, { Component } from 'react';
+import { StyledForm } from './search-form-styles';
 
-const searchForm = ({ onSearchSubmitted }) => {
-  // pretend state management stuff
-  let searchField;
-
-  const handleSubmit = e => {
-    e.preventDefault();
-    onSearchSubmitted(searchField.value);
+class SearchForm extends Component {
+  state = {
+    search: ''
   };
 
-  return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <input ref={e => (searchField = e)} type="text" placeholder="Find some gifs..." />
-        <input type="submit" value="Search" />
-      </form>
-    </>
-  );
-};
+  handleOnChange = ({ target: { name, value } }) => {
+    this.setState({
+      [name]: value
+    });
+  };
 
-searchForm.propTypes = {
+  handleSubmit = e => {
+    e.preventDefault();
+    const { search } = this.state;
+    const { onSearchSubmitted } = this.props;
+    onSearchSubmitted(search);
+  };
+
+  render() {
+    return (
+      <StyledForm onSubmit={this.handleSubmit}>
+        <Textfield
+          name="search"
+          onChange={this.handleOnChange}
+          autoFocus
+          width="xlarge"
+          placeholder="Search for some gifs..."
+        />
+      </StyledForm>
+    );
+  }
+}
+
+SearchForm.propTypes = {
   onSearchSubmitted: PropTypes.func.isRequired
 };
 
-export default searchForm;
+export default SearchForm;
