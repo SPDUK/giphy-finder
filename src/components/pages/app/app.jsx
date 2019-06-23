@@ -1,9 +1,12 @@
 import React from 'react';
 import Navigation from '../../navigation';
+import { StyledApp, StyledContainer } from './app-styles';
 
-export default ({ children }) => (
-  <>
+const app = ({ children }) => (
+  <StyledApp>
     <Navigation />
-    {children}
-  </>
+    <StyledContainer>{children}</StyledContainer>
+  </StyledApp>
 );
+
+export default app;

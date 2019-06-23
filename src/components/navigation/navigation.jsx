@@ -1,6 +1,6 @@
 import React from 'react';
-import Button from '@atlaskit/button';
 import { StyledLink } from '../styles/styled-link';
+import { StyledNav, StyledButton } from './navigation-styles';
 
 const pages = [
   {
@@ -20,10 +20,17 @@ const pages = [
 const navigation = () => {
   const links = pages.map(({ title, path }) => (
     <StyledLink key={path} to={path}>
-      <Button appearance="primary">{title}</Button>
+      <StyledButton appearance="subtle">{title}</StyledButton>
     </StyledLink>
   ));
-  return <>{links}</>;
+  return (
+    <StyledNav>
+      <a href="/">
+        <h3>Giphy Finder</h3>
+      </a>
+      {links}
+    </StyledNav>
+  );
 };
 
 export default navigation;
