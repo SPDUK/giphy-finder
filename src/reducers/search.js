@@ -39,7 +39,8 @@ export default (state, action) => {
     case SEARCH_ERROR:
       return {
         ...state,
-        isLoading: false
+        isLoading: false,
+        isActive: false
       };
     default:
       return state;
