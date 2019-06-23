@@ -8,7 +8,6 @@ import createSagaMiddleware from 'redux-saga';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
 import history from './lib/history';
 import reducer from './reducers';
-import { searchSuccess } from './actions/search';
 import searchSaga from './sagas/search';
 
 import { App, Search, Trending, Random } from './components/pages';

@@ -1,7 +1,9 @@
-import { SEARCH_SUCCESS } from '../actions/search';
+import { SEARCH_SUCCESS, NEW_SEARCH } from '../actions/search';
 
 const initialState = {
-  results: []
+  searchTerm: '',
+  results: [],
+  offset: 0
 };
 
 const searchResultTransformer = ({ images }) => ({
@@ -15,7 +17,15 @@ export default (state, action) => {
     case SEARCH_SUCCESS:
       return {
         ...state,
-        results: action.results.map(searchResultTransformer)
+        offset: state.offset + 50,
+        results: state.results.concat(action.results.map(searchResultTransformer))
+      };
+    case NEW_SEARCH:
+      return {
+        ...state,
+        results: [],
+        offset: 0,
+        searchTerm: action.searchTerm
       };
     default:
       return state;
