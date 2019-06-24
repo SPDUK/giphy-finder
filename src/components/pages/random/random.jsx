@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Spinner from '@atlaskit/spinner';
+import Button from '@atlaskit/button';
 import { SearchResult } from '../../../lib/custom-types';
+import { StyledRandom } from './random-styles';
+import randomEmoji from './randomEmoji';
 
 class Random extends Component {
   render() {
@@ -9,14 +12,18 @@ class Random extends Component {
     // if there's an image wtihout both a full image and thumbnail, refresh
     if ((giphy && !giphy.full) || (giphy && !giphy.thumbnail)) refresh();
     return (
-      <>
-        <button onClick={() => refresh()}>Next Gif</button>
+      <StyledRandom>
         {giphy ? (
-          <img onClick={() => onClick(giphy.full)} src={giphy.thumbnail} alt="" />
+          <>
+            <img onClick={() => onClick(giphy.full)} src={giphy.thumbnail} alt="gif" />
+            <Button appearance="warning" onClick={() => refresh()}>
+              {randomEmoji()} Next Random Gif {randomEmoji()}
+            </Button>
+          </>
         ) : (
           <Spinner />
         )}
-      </>
+      </StyledRandom>
     );
   }
 }
