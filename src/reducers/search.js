@@ -1,3 +1,4 @@
+import { LOCATION_CHANGE } from 'connected-react-router';
 import { SEARCH_SUCCESS, NEW_SEARCH, PERFORM_SEARCH, SEARCH_ERROR } from '../actions/search';
 
 const initialState = {
@@ -42,6 +43,8 @@ export default (state, action) => {
         isLoading: false,
         isActive: false
       };
+    case LOCATION_CHANGE:
+      return initialState;
     default:
       return state;
   }
