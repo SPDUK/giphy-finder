@@ -1,7 +1,18 @@
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 import Random from './random';
+import { showGiphyDisplay } from '../../../actions/giphy-display';
+import { getRandomGiphy } from '../../../actions/random';
 
-// routing with redux
-// we perform routing by pushing actions to the store
-export default withRouter(connect(() => ({}))(Random));
+const mapStateToProps = ({ random: { giphy } }) => ({
+  giphy
+});
+
+const mapDispatchToProps = dispatch => ({
+  onClick: giphy => dispatch(showGiphyDisplay(giphy)),
+  refresh: () => dispatch(getRandomGiphy())
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Random);

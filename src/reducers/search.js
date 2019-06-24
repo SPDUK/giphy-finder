@@ -9,7 +9,7 @@ const initialState = {
   isActive: false
 };
 
-const searchResultTransformer = ({ images }) => ({
+const transformSearchResult = ({ images }) => ({
   thumbnail: images.fixed_height_small_still.url,
   full: images.original.url
 });
@@ -21,7 +21,7 @@ export default (state, action) => {
       return {
         ...state,
         offset: state.offset + 50,
-        results: state.results.concat(action.results.map(searchResultTransformer)),
+        results: state.results.concat(action.results.map(transformSearchResult)),
         isLoading: false,
         isActive: action.results.length === 50
       };
