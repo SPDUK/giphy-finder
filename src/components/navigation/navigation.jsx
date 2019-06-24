@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { StyledLink } from '../styles/styled-link';
 import { StyledNav, StyledButton } from './navigation-styles';
 
@@ -25,9 +26,9 @@ const navigation = () => {
   ));
   return (
     <StyledNav>
-      <a href="/">
+      <Link to="/">
         <h3>Giphy Finder</h3>
-      </a>
+      </Link>
       {links}
     </StyledNav>
   );
