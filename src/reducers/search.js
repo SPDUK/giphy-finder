@@ -14,6 +14,9 @@ const transformSearchResult = ({ images }) => ({
   full: images.original.url
 });
 
+// state for previous path to fix issues with componentDidMount
+let prevPath = '';
+
 export default (state, action) => {
   if (state === undefined) return initialState;
   switch (action.type) {
@@ -44,6 +47,9 @@ export default (state, action) => {
         isActive: false
       };
     case LOCATION_CHANGE:
+      const { pathname } = action.payload.location;
+      if (prevPath === pathname) return state;
+      prevPath = pathname;
       return initialState;
     default:
       return state;
