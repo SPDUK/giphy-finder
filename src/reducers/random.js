@@ -1,5 +1,5 @@
 import { LOCATION_CHANGE } from 'connected-react-router';
-import { GET_RANDOM_GIPHY_SUCCESS, GET_RANDOM_GIPHY_ERROR } from '../actions/random';
+import { GET_RANDOM_GIPHY_SUCCESS } from '../actions/random';
 
 const initialState = {
   giphy: undefined
