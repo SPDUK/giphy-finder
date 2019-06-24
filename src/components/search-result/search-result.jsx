@@ -11,13 +11,9 @@ const StyledImg = styled.img`
   }
 `;
 
-const searchResult = ({ result: { thumbnail }, onClick }) => {
-  const clicked = e => {
-    e.preventDefault();
-    onClick();
-  };
-  return <StyledImg onClick={clicked} src={thumbnail} alt={thumbnail} />;
-};
+const searchResult = ({ result: { thumbnail }, onClick }) => (
+  <StyledImg onClick={onClick} src={thumbnail} alt={thumbnail} />
+);
 
 searchResult.propTypes = {
   result: CustomTypes.SearchResult,
