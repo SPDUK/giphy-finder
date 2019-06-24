@@ -9,21 +9,21 @@ const apiKey = 'QROWYp5yKBH82sfU7V89Z9N1AS7RWyDf';
 // https://redux-saga.js.org/docs/api/#selectselector-args
 const selectSearchState = state => state.search;
 
+// if there is no search term or we are on the trending page, load the trending gifs
 function* doSearch() {
   const { offset, searchTerm } = yield select(selectSearchState);
   try {
-    const q = searchTerm.replace(' ', '%20');
+    const q = searchTerm ? searchTerm.replace(' ', '%20') : '';
     const params = {
       apiKey,
       q,
       limit: 50,
       offset
     };
+    const endpoint = searchTerm ? 'search' : 'trending';
     const {
       data: { data }
-    } = yield call(axios.get, `https://api.giphy.com/v1/gifs/search`, {
-      params
-    });
+    } = yield call(axios.get, `https://api.giphy.com/v1/gifs/${endpoint}`, { params });
 
     yield put(searchSuccess(data));
   } catch (e) {

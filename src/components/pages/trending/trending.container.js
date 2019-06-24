@@ -1,5 +1,4 @@
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 import Trending from './trending';
+import infiniteSearchContainerFactory from '../../infinite-search/infinite-search.container';
 
-export default withRouter(connect(() => ({}))(Trending));
+export default infiniteSearchContainerFactory(Trending);
