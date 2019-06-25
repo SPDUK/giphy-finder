@@ -7,7 +7,7 @@ export const StyledInfiniteScroll = styled.div`
 
 export const StyledScrollTop = styled.div`
   transition: 0.35s ease-out;
-  z-index: 9999;
+  z-index: 500;
   cursor: pointer;
   position: fixed;
   bottom: 30px;

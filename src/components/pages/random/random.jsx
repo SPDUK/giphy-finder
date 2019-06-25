@@ -4,7 +4,7 @@ import Spinner from '@atlaskit/spinner';
 import Button from '@atlaskit/button';
 import { SearchResult } from '../../../lib/custom-types';
 import { StyledRandom } from './random-styles';
-import randomEmoji from './randomEmoji';
+import randomEmoji from '../../../lib/randomEmoji';
 
 class Random extends Component {
   render() {

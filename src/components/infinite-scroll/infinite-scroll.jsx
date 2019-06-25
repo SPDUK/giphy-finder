@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Spinner from '@atlaskit/spinner';
+import { Helmet } from 'react-helmet';
 import { Centered } from '../styles/centered';
 import { StyledScrollTop, StyledInfiniteScroll } from './infinite-scroll-styles';
+import randomEmoji from '../../lib/randomEmoji';
 
 class InfiniteScroll extends Component {
   constructor(props) {
@@ -53,6 +55,10 @@ class InfiniteScroll extends Component {
 
     return (
       <StyledInfiniteScroll>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Giphy Finder {randomEmoji()}</title>
+        </Helmet>
         <div ref={e => (this.container = e)}>
           {children}
           {isLoading && (
