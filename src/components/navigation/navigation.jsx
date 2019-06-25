@@ -1,21 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { StyledLink } from '../styles/styled-link';
-import { StyledNav, StyledButton } from './navigation-styles';
+import { StyledLink, StyledAnchor } from '../styles/styled-link';
+import { StyledNav, StyledButton, StyledIconLink } from './navigation-styles';
 
 const pages = [
-  {
-    title: 'Search',
-    path: '/'
-  },
-  {
-    title: 'Trending',
-    path: '/trending'
-  },
-  {
-    title: 'Random',
-    path: '/random'
-  }
+  { title: 'Search', path: '/' },
+  { title: 'Trending', path: '/trending' },
+  { title: 'Random', path: '/random' }
 ];
 
 const navigation = () => {
@@ -26,10 +16,15 @@ const navigation = () => {
   ));
   return (
     <StyledNav>
-      <Link to="/">
+      <StyledIconLink to="/">
         <h3>Giphy Finder</h3>
-      </Link>
+      </StyledIconLink>
       {links}
+      <aside>
+        <StyledAnchor href="https://github.com/SPDUK/giphy-finder">
+          <StyledButton appearance="primary">Github</StyledButton>
+        </StyledAnchor>
+      </aside>
     </StyledNav>
   );
 };
