@@ -1,0 +1,11 @@
+body {
+  background: #0747a6;
+}
+
+.fadeOut {
+  opacity: 0;
+  right: -50px;
+}
+.fadeIn {
+  opacity: 1;
+}

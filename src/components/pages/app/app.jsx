@@ -1,17 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Navigation from '../../navigation';
-import { StyledApp, StyledContainer } from './app-styles';
+import { StyledContainer } from './app-styles';
 import GiphyDisplay from '../../giphy-display/giphy-display';
 import Footer from '../../footer/footer';
+import '../../styles/app.css';
 
 const app = ({ children, giphy, giphyIsOpen, giphyOnClose }) => (
-  <StyledApp>
+  <>
     <Navigation />
     <StyledContainer>{children}</StyledContainer>
     <GiphyDisplay giphyIsOpen={giphyIsOpen} giphy={giphy} giphyOnClose={giphyOnClose} />
     <Footer />
-  </StyledApp>
+  </>
 );
 
 app.propTypes = {
