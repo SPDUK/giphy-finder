@@ -3,7 +3,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
-import { createLogger } from 'redux-logger';
 import { routerMiddleware, ConnectedRouter } from 'connected-react-router';
 import createSagaMiddleware from 'redux-saga';
 import { Route } from 'react-router-dom';
@@ -15,10 +14,7 @@ import randomSaga from './sagas/random';
 import { App, Search, Trending, Random } from './components/pages';
 
 const sagas = createSagaMiddleware();
-const store = createStore(
-  reducer(history),
-  applyMiddleware(routerMiddleware(history), createLogger(), sagas)
-);
+const store = createStore(reducer(history), applyMiddleware(routerMiddleware(history), sagas));
 
 sagas.run(searchSaga);
 sagas.run(randomSaga);
