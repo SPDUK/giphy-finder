@@ -2,8 +2,7 @@ import axios from 'axios';
 import { put, call, takeLatest, select } from 'redux-saga/effects';
 import { PERFORM_SEARCH, searchSuccess, searchError } from '../actions/search';
 
-// this is fine to be public, it's a dev key
-const apiKey = 'QROWYp5yKBH82sfU7V89Z9N1AS7RWyDf';
+const apiKey = process.env.REACT_APP_API_KEY;
 
 // use select to get the current search state
 // https://redux-saga.js.org/docs/api/#selectselector-args

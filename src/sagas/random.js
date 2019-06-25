@@ -4,8 +4,7 @@ import { LOCATION_CHANGE } from 'connected-react-router';
 
 import { getRandomGiphySuccess, getRandomGiphyError, GET_RANDOM_GIPHY } from '../actions/random';
 
-// this is fine to be public, it's a dev key
-const apiKey = 'QROWYp5yKBH82sfU7V89Z9N1AS7RWyDf';
+const apiKey = process.env.REACT_APP_API_KEY;
 
 export function* getRandomGiphy() {
   try {
