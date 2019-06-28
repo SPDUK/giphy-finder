@@ -29,6 +29,7 @@ class SearchForm extends Component {
           onChange={this.handleOnChange}
           autoFocus
           width="xlarge"
+          aria-label="Search for some gifs"
           placeholder="Search for some gifs..."
         />
       </StyledForm>
