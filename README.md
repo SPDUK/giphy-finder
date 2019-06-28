@@ -2,7 +2,7 @@
 
 Simple gif searcher, Uses redux sagas to fetch giphy API results and handle the async state updates or error handling. Stores the results in redux state to enable infinite scrolling/pagination, as well as a lightbox full gif view.
 
- [Live website](https://giphy-finder.netlify.com/)
+ [Live website](https://gifs.spdevuk.com)
 
 tools used:
 - [React](https://github.com/facebook/react)
