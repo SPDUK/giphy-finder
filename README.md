@@ -15,6 +15,7 @@ tools used:
 [![Netlify Status](https://api.netlify.com/api/v1/badges/0b6210b3-69d2-4980-bad9-46fc51e5d916/deploy-status)](https://app.netlify.com/sites/giphy-finder/deploys)
 ___
 
+![lighthouse](giphy-lighthouse.jpg)
 
 ![preview](preview.jpg)
 
